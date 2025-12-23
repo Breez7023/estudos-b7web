@@ -1,9 +1,16 @@
-import { createServer } from "node:http";
+import express from "express";
+import helmet from "helmet";
+import router from "./routes/index.js";
 
-const server = createServer((req, res) => {
-  res.end("ola mundo");
-});
+const server = express();
+
+server.use(helmet());
+server.use(express.json());
+server.use(express.urlencoded({ extended: true }));
+server.use(express.static("public"));
+
+server.use("/", router);
 
 server.listen(3000, () => {
-  console.log("Servidor funcionando em http:localhost:3000");
+  console.log("servidor rodando no localhost 3000");
 });
