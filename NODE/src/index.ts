@@ -1,4 +1,9 @@
-let nome = "Daniel";
-let idade = 19;
+import { createServer } from "node:http";
 
-console.log(`Meu nome é ${nome} e minha idade é ${idade} anos.`);
+const server = createServer((req, res) => {
+  res.end("ola mundo");
+});
+
+server.listen(3000, () => {
+  console.log("Servidor funcionando em http:localhost:3000");
+});
