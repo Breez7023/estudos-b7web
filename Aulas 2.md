@@ -61,3 +61,21 @@ ex: SELECT \*, (SELECT fornecedores.nome FROM fornecedores WHERE fornecedores.id
 SELECT \* FROM produtos WHERE (SELECT fornecedores.nome FROM fornecedores WHERE fornecedores.id = produtos.id_fornecedor) = 'NASA';
 
 Bsicamente serve para utilizar tanto como base tanto para filtrar e criar colunas imaginarias pegando dados de outras tabelas e relacionando com a sua atual
+
+## Join
+
+- SELECT (coluna) FROM (tabela) INNER JOIN (tabela2) ON (tabela2).(coluna) = (tabela).(coluna)
+
+ex: SELECT produtos.\*, fornecedores.nome AS fornecedor FROM produtos INNER JOIN fornecedores ON fornecedores.id = produtos.id_fornecedor;
+
+Junta 2 tabelas, e utilizamos o select para selecionar as colunas desejadas
+
+TIPOS DE JOINS:
+
+Isso basicamente dara a preferencia de dado para uma das tabelas, em casos onde uma tabela possui dados que nao sao complementados pela outra, assim mostrando o dado e deixando null, a da outra tabela.
+
+INNER:Exige que os dados batam e se complementem entre as 2 tabelas
+
+LEFT:dara a prioridade de dado para a da esquerda
+
+RIGHT:dara para a da direita
