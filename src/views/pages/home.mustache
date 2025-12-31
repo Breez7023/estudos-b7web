@@ -1,0 +1,20 @@
+{{>partials/header}}
+
+<fieldset>Adicionar novo usuario</legend>
+<form method="POST" action="/novo-usuario">
+<input type="text" name="firstName" placeholder="nome"/><br/>
+<input type="text" name="lastName" placeholder="sobrenome"/><br/>
+<input type="email" name="email" placeholder="email"/><br/>
+<input type="text" name="age" placeholder="idade"/><br/>
+<input type="text" name="interests" placeholder="interesses"/><br/>
+<input type="submit" value="inserir"/>
+</form>
+</fieldset>
+
+<h3>Usuarios</h3>
+<ul>
+{{#users}}
+<li>{{name.firstName}} - {{age}} anos - <a href="/usuarios/{{_id}}/addidade">+1 ano de vida</a></li>
+{{/users}}
+</ul>
+{{>partials/footer}}
